@@ -6,3 +6,16 @@
     img: '/images/bacon.jpg'
   })
 @end
+
+@section('scripts')
+  <script>
+    const button = document.getElementsByTagName('button')[0];
+    const bacon = document.getElementsByTagName('img')[0];
+    const baconSection = document.getElementsByTagName('section')[1];
+
+    baconSection.style.maxHeight = '90vh';
+    baconSection.style.overflowY = 'scroll';
+
+    button.onclick = () => baconSection.appendChild(bacon.cloneNode(true));
+  </script>
+@end
