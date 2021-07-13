@@ -1,4 +1,4 @@
-const { join } = require('path')
+const { join, resolve } = require('path')
 const Encore = require('@symfony/webpack-encore')
 
 /*
@@ -156,7 +156,7 @@ Encore.configureDevServerOptions((options) => {
 | favorite CSS precompiler
 |
 */
-// Encore.enableSassLoader()
+Encore.enableSassLoader()
 // Encore.enableLessLoader()
 // Encore.enableStylusLoader()
 
@@ -187,6 +187,9 @@ Encore.configureDevServerOptions((options) => {
 //   useJsx: false
 // })
 
+// Enable React
+Encore.enableReactPreset()
+
 /*
 |--------------------------------------------------------------------------
 | Configure logging
@@ -202,6 +205,11 @@ config.infrastructureLogging = {
   level: 'warn',
 }
 config.stats = 'errors-warnings'
+
+config.resolve.alias = {
+  Components: resolve(__dirname, 'frontend/views/components'),
+  Containers: resolve(__dirname, 'frontend/views/containers'),
+}
 
 /*
 |--------------------------------------------------------------------------
