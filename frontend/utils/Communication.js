@@ -13,17 +13,14 @@ const getMethod = (type) => {
       const response = await fetch(path, fetchParams);
       const json = await response.json();
 
-      if (response.ok) {
-        console.log('SUCCESS')
-      } else {
-        console.log('FAILED')
+      return {
+        success: response.ok,
+        response: json
       }
-
-      console.log(json)
     } catch (err) {
       console.error(err)
     } finally {
-      // close loader?
+      // close loader? (todo?)
     };
   };
 };

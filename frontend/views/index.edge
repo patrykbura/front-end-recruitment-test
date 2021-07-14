@@ -6,3 +6,20 @@
     source: 'resources/views/index.edge'
   })
 @end
+
+@section('styles')
+  <style>
+    html main {
+      max-width: 100%;
+      padding: 0;
+      align-items: stretch;
+    }
+    html body:before {
+      content: none;
+    }
+  </style>
+@end
+
+@section('head')
+  @entryPointScripts('app')
+@end

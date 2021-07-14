@@ -1,0 +1,1 @@
+export const getDigitsOnly = (value) => value.replace(/[^\d]/g, '');
