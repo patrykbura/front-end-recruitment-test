@@ -1,20 +1,20 @@
 import './Input.scss'
 import React from 'react'
 
-function Input({className, label, placeholder}) {
+const Input = React.forwardRef((props, ref) => {
+  const {error, label, className, ...restProps} = props;
 
   return (
     <div 
-      className={ `input-wrapper ${className}`}
-      onClick={ () => document.getElementById('fname').focus() }
+      className={`input-wrapper ${className}`} 
+      style={{backgroundColor: error ? 'red' : ''}}
+      onClick={ () => document.getElementById(props.name).focus() }
     >
-      <label htmlFor="fname" >{ label }</label>
-      <input type="text" id="fname" name="firstname" placeholder={ placeholder }></input>
-      {/* <label>Input here:
-        <input type='text' name='theinput' id='theinput'/>
-      </label> */}
+      <label htmlFor={props.name}>{ label }</label>
+      <input id={props.name} {...restProps} ref={ref} />
+      {/* <NumberFormat {...restProps} ref={ref} id={props.name} format="####-####-####-####" placeholder="0000-0000-0000-0000" mask="_"/> */}
     </div>
   )
-}
+});
 
-export default Input
+export default Input;
