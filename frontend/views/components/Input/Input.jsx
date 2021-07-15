@@ -8,8 +8,8 @@ const Input = React.forwardRef((props, ref) => {
 
   return (
     <div 
-      className={`input-wrapper ${className}`} 
-      style={{backgroundColor: error ? 'red' : ''}}
+      className={`input-wrapper ${className} ${error ? 'input-wrapper-error' : ''}`}
+      // style={{backgroundColor: error ? 'red' : ''}}
       onClick={ () => document.getElementById(props.name).focus() }
     >
       <label htmlFor={props.name}>{ label }</label>

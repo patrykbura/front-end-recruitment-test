@@ -55,20 +55,38 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    outline: 1px dashed #d9d9d9;
+    outline-offset: -10px;
 
     .order__summary-header{
       font-weight: 600;
       color: black;
+      margin-bottom: 15px;
+      font-size: 0.9em;
     }
 
     .order__summary-item, .order__summary-purchase, .order__summary-tax, .order__summary-total{
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
+      font-size: 0.8em;
+      color: black;
+      font-weight: 500;
     }
+
+    .order__summary-items, .order__summary-tax{
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed #d9d9d9;
+    }    
 
     .order__summary-total{
       font-size: 2em;
+      font-weight: 800;
+
+      span:first-child{
+        font-size: 0.45em;
+      }
     }
   }
 
@@ -80,6 +98,14 @@
     font-weight: 600;
     color: black;
     margin-top: 30px;
+
+    span{
+      margin-right: 0.8em;
+    }
+
+    img{
+      width: 0.8em;
+    }
   }
 
   .order__payment--inputs{

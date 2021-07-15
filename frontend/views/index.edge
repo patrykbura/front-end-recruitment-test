@@ -2,9 +2,10 @@
 @set('title', 'Home page')
 
 @section('body')
-  @!component('components/welcome', {
-    source: 'resources/views/index.edge'
+  @!component('components/order', {
+    source: 'resources/views/index.edge',
   })
+  <adonis-react-state-provider>{{JSON.stringify(cart)}}</adonis-react-state-provider>
 @end
 
 @section('styles')

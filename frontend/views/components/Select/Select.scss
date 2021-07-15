@@ -1,0 +1,26 @@
+select {
+  width: 100%;
+  display: inline-block;
+  border: none;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  margin-top: 0.1em;
+  background: url('../../../public/images/arrow-down.svg') no-repeat white;
+  -webkit-appearance: none;
+  background-position-x: calc(100% - 10px);
+  background-position-y: calc(100% - 10px);
+  outline: 0px;
+}
+
+select:active{
+  border:none;
+}
+
+// .select-opened{
+//   background: url('../../../public/images/arrow-up.svg') no-repeat white;
+//   background-size: 0.9em;
+//   -webkit-appearance: none;
+//   background-position-x: calc(100% - 10px);
+//   background-position-y: calc(100% - 10px);
+//   font-size: 1.2em;
+// }

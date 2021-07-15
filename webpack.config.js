@@ -210,6 +210,7 @@ config.resolve.alias = {
   Components: resolve(__dirname, 'frontend/views/components'),
   Containers: resolve(__dirname, 'frontend/views/containers'),
   Utils: resolve(__dirname, 'frontend/utils'),
+  CustomElements: resolve(__dirname, 'frontend/views/customElements'),
 }
 
 /*
