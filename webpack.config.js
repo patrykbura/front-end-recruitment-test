@@ -207,10 +207,11 @@ config.infrastructureLogging = {
 config.stats = 'errors-warnings'
 
 config.resolve.alias = {
+  CustomElements: resolve(__dirname, 'frontend/views/customElements'),
   Components: resolve(__dirname, 'frontend/views/components'),
   Containers: resolve(__dirname, 'frontend/views/containers'),
   Utils: resolve(__dirname, 'frontend/utils'),
-  CustomElements: resolve(__dirname, 'frontend/views/customElements'),
+  Mocks: resolve(__dirname, 'frontend/mocks'),
 }
 
 /*

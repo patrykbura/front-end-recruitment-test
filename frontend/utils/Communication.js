@@ -19,9 +19,7 @@ const getMethod = (type) => {
       }
     } catch (err) {
       console.error(err)
-    } finally {
-      // close loader? (todo?)
-    };
+    }
   };
 };
 
