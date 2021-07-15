@@ -1,15 +1,20 @@
 import './Order.scss'
+import 'react-notifications/lib/notifications.css';
 import React, { useRef } from 'react'
 import Input from 'Components/Input/Input'
 import Select from 'Components/Select/Select'
 import Form from 'Components/Form/Form';
+import OrderSummary from 'Components/OrderSummary/OrderSummary';
 import Communication from 'Utils/Communication';
 import ErrorMessage from 'Components/ErrorMessage/ErrorMessage';
 import FormDefinition from './FormDefinition';
 import withFormDefinition from 'Components/Form/withFormDefinition';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { getDigitsOnly } from 'Utils/Parsers';
 import { useForm } from "react-hook-form";
 
+
+window.doit = () => NotificationManager.success('Purchase completed', 'Success!');
 
 const FormInput = withFormDefinition(Input)
 
@@ -25,12 +30,9 @@ const onSubmit = async (data, setError) => {
   })
 
   if (result.success) {
-    //TODO - UI
-    console.log('SUCCESS')
+    NotificationManager.success('Purchase completed.', 'Success!');
   } else {
-    //TODO - UI
-    
-
+    NotificationManager.warning('Purchase failed! Try again.')
     result.response?.errors.forEach(err => {
       setError(err.field, {
         type: "manual",
@@ -38,16 +40,14 @@ const onSubmit = async (data, setError) => {
       })
     })
   }
-
-  console.log('done', result)
 }
 
-const Order = ({data}) => {
+const Order = ({order}) => {
   const externalSetError = useRef();
-  console.log(data)
 
   return (
     <div>
+      <NotificationContainer/>
       <Form 
         onSubmit={(data) => onSubmit(data, externalSetError.current)}
         customSubmitButton={true}
@@ -57,52 +57,103 @@ const Order = ({data}) => {
             <div className="todo">
               <div className="order-wrapper">
                 <div className="order__personal-information--header">
-                  PERSONAL INFORMATION
+                  <img src={require('../../../public/images/one.svg')}/>
+                  <span>PERSONAL INFORMATION</span>
                 </div>
                 <div className="order__personal-information--inputs">
-                  <FormInput {...defProps} definition={FormDefinition.firstName} className="order__personal-information-first-name" label="First name" placeholder="Your name" type="text"/>
-                  <FormInput {...defProps} definition={FormDefinition.lastName} className="order__personal-information-last-name" label="Last name" placeholder="Your last name" type="text"/>
-                  <FormInput {...defProps} definition={FormDefinition.email} className="order__personal-information-email" label="Email" placeholder="Your email" type="text"/>
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.firstName} 
+                    className="order__personal-information-first-name" 
+                    label="First name" 
+                    placeholder="Your name" 
+                    type="text"
+                  />
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.lastName} 
+                    className="order__personal-information-last-name" 
+                    label="Last name" placeholder="Your last name" 
+                    type="text"
+                  />
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.email} 
+                    className="order__personal-information-email" 
+                    label="Email" 
+                    placeholder="Your email" 
+                    type="text"
+                  />
                   {/* <FormInput {...defProps} definition={FormDefinition.country} className="order__personal-information-country" label="Country" placeholder="Select country" type="text"/> */}
-                  <Select className="order__personal-information-country" label="Country"/>
-                  <FormInput {...defProps} definition={FormDefinition.postalCode} className="order__personal-information-postal-code" label="Postal Code" placeholder="00000" type="text" format="#####" withFormat={true}/>
-                  <FormInput {...defProps} definition={FormDefinition.phone} className="order__personal-information-phone" label="Phone Number" placeholder="(000) 000-00-00" type="text" format="(###) ###-##-##" mask="_" withFormat={true}/>
+                  <Select 
+                    className="order__personal-information-country" 
+                    label="Country"
+                  />
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.postalCode} 
+                    className="order__personal-information-postal-code" 
+                    label="Postal Code" 
+                    placeholder="00000"
+                    type="text" 
+                    format="#####" 
+                    withFormat={true}
+                  />
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.phone} 
+                    className="order__personal-information-phone" 
+                    label="Phone Number" 
+                    placeholder="(000) 000-00-00" 
+                    type="text" 
+                    format="(###) ###-##-##" 
+                    mask="_" 
+                    withFormat={true}
+                  />
                 </div>
-                <div className="order__summary">
-                  <p className="order__summary-header">YOUR ORDER</p>
-                  <div className="order__summary-items">
-                    <div className="order__summary-item">
-                      <span>{data.items[0].name}</span>
-                      <span>$ {data.items[0].price}</span>
-                    </div>
-                    <div className="order__summary-item">
-                      <span>Modern Buckler</span>
-                      <span>$ 380</span>
-                    </div>
-                  </div>
-                  <div className="order__summary-purchase">
-                    <span>Total purchase</span>
-                    <span>$ 960</span>
-                  </div>
-                  <div className="order__summary-tax">
-                    <span>Estimated tax</span>
-                    <span>$ 0</span>
-                  </div>
-                  <div className="order__summary-total">
-                    <span>Total</span>
-                    <span>$ 960</span>
-                  </div>
-                </div>
+                <OrderSummary order={order}/>
                 <div className="order__payment--header">
+                  <img src={require('../../../public/images/two.svg')}/>
                   <span>PAYMENTS DETAILS</span>
                   <img src={require('../../../public/images/lock.svg')}/>
                 </div>
                 <div className="order__payment--inputs">
-                  <FormInput {...defProps} definition={FormDefinition.card} className="order__personal-information-card" label="Credit Card Number" placeholder="0000-0000-0000-0000" type="text" format="####-####-####-####" mask="_" withFormat={true}/>
-                  <FormInput {...defProps} definition={FormDefinition.securityCode} className="order__personal-information-security-code" label="Security code" placeholder="***" type="password" maxLength="3"/>
-                  <FormInput {...defProps} definition={FormDefinition.expDate} className="order__personal-information-exp-date" label="Expiration date" placeholder="MM/YY" type="text" format="##/##" mask={['M', 'M', 'Y', 'Y'] } withFormat={true}/>
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.card} 
+                    className="order__personal-information-card" 
+                    label="Credit Card Number" 
+                    placeholder="0000-0000-0000-0000"
+                    type="text" 
+                    format="####-####-####-####" 
+                    mask="_" 
+                    withFormat={true} 
+                    customImg={require('../../../public/images/visa.svg')}
+                  />
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.securityCode} 
+                    className="order__personal-information-security-code" 
+                    label="Security code" placeholder="***" 
+                    type="password" maxLength="3" 
+                    customImg={require('../../../public/images/questionmark.svg')} 
+                    imgTootltip="CVV Code is a three-digit number on the back of your card."
+                  />
+                  <FormInput 
+                    {...defProps} 
+                    definition={FormDefinition.expDate} 
+                    className="order__personal-information-exp-date" 
+                    label="Expiration date" 
+                    placeholder="MM/YY" 
+                    type="text" 
+                    format="##/##" 
+                    mask={['M', 'M', 'Y', 'Y'] } 
+                    withFormat={true}
+                  />
                 </div>
-                <button type="submit">COMPLETE PURCHASE</button>
+                <button type="submit">
+                  COMPLETE PURCHASE
+                </button>
               </div>
               <ErrorMessage errors={defProps.errors}/>
             </div>

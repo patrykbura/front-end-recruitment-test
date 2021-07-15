@@ -13,7 +13,7 @@ if (orderSummaryElement) {
 
   ReactDOM.render(
     <React.StrictMode>
-      <Order data={state}/>
+      <Order order={state}/>
     </React.StrictMode>,
     orderSummaryElement
   );

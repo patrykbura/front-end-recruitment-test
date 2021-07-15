@@ -2,25 +2,7 @@
 @set('title', 'Home page')
 
 @section('body')
-  @!component('components/order', {
+  @!component('components/welcome', {
     source: 'resources/views/index.edge',
   })
-  <adonis-react-state-provider>{{JSON.stringify(cart)}}</adonis-react-state-provider>
-@end
-
-@section('styles')
-  <style>
-    html main {
-      max-width: 100%;
-      padding: 0;
-      align-items: stretch;
-    }
-    html body:before {
-      content: none;
-    }
-  </style>
-@end
-
-@section('head')
-  @entryPointScripts('app')
 @end

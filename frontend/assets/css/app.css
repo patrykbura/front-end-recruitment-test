@@ -32,7 +32,8 @@ a {
 main {
   max-width: 620px;
   margin: auto;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100%;
   padding: 0 30px;
   align-items: center;
   display: flex;
