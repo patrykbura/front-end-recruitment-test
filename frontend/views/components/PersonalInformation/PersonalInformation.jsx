@@ -13,7 +13,7 @@ const PersonalInformation = ({defProps}) => {
   return (
     <>
       <div className="personal-information__header">
-        <img src={require('../../../public/images/one.svg')}/>
+        <img src={require('public/images/one.svg')}/>
         <span>PERSONAL INFORMATION</span>
       </div>
       <div className="personal-information__inputs">

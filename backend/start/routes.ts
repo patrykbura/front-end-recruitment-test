@@ -34,7 +34,7 @@ Route.get('/checkout', async ({ view }) => {
     cart: {
       items: [
         { name: 'Apple Watch Sport', price: 580 },
-        { name: 'Modern Buckle', price: 380 },
+        { name: 'Modern Buckle', price: 380 }
       ],
       totals: {
         subTotal: 960,

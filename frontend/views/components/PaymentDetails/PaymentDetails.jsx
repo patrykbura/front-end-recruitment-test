@@ -10,9 +10,9 @@ const PaymentDetails = ({defProps}) => {
   return (
     <>
       <div className="payment-details__header">
-        <img src={require('../../../public/images/two.svg')}/>
+        <img src={require('public/images/two.svg')}/>
         <span>PAYMENTS DETAILS</span>
-        <img src={require('../../../public/images/lock.svg')}/>
+        <img src={require('public/images/lock.svg')}/>
       </div>
       <div className="payment-details__inputs">
         <FormInput 
@@ -25,15 +25,17 @@ const PaymentDetails = ({defProps}) => {
           format="####-####-####-####" 
           mask="_" 
           withFormat={true} 
-          customImg={require('../../../public/images/visa.svg')}
+          customImg={require('public/images/visa.svg')}
         />
         <FormInput 
           {...defProps} 
           definition={FormDefinition.securityCode} 
           className="payment-details__security-code" 
-          label="Security code" placeholder="***" 
-          type="password" maxLength="3" 
-          customImg={require('../../../public/images/questionmark.svg')} 
+          label="Security code" 
+          placeholder="***" 
+          type="password" 
+          maxLength="3" 
+          customImg={require('public/images/questionmark.svg')} 
           imgTootltip="CVV Code is a three-digit number on the back of your card."
         />
         <FormInput 

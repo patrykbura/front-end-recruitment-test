@@ -10,7 +10,6 @@ const orderSummaryElement = document.getElementById('order');
 if (orderSummaryElement) {
   const state = document.getElementsByTagName('adonis-react-state-provider')[0].getState();
 
-
   ReactDOM.render(
     <React.StrictMode>
       <Order order={state}/>

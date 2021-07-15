@@ -213,6 +213,7 @@ config.resolve.alias = {
   Definitions: resolve(__dirname, 'frontend/definitions'),
   Utils: resolve(__dirname, 'frontend/utils'),
   Mocks: resolve(__dirname, 'frontend/mocks'),
+  public: resolve(__dirname, 'frontend/public')
 }
 
 /*

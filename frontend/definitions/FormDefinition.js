@@ -53,13 +53,16 @@ export default {
     id: "phone",
     validation: {
       required: 'Phone number is required',
-      //TODO pattern
+      pattern: {
+        value: /^[(][0-9]{3}[)] [0-9]{3}-[0-9]{2}-[0-9]{2}$/,
+        message: "Phone number is invalid" 
+      }
     }
   },
   card: {
     id: "creditCard",
     validation: {
-      required: 'Credit card is required',
+      required: 'Credit card number is required',
       pattern: {
         value: /^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/,
         message: "Credit card number is invalid" 
@@ -82,7 +85,7 @@ export default {
       required: 'Expiration date is required',
       pattern: {
         value: /^[0-9]{2}\/[0-9]{2}$/,
-        message: "Postal code is invalid" 
+        message: "Expiration date is invalid" 
       }
     }
   }

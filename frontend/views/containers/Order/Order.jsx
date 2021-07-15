@@ -49,7 +49,12 @@ const Order = ({order}) => {
                 <PersonalInformation defProps={defProps} />
                 <OrderSummary order={order}/>
                 <PaymentDetails defProps={defProps}/>
-                <button type="submit"> COMPLETE PURCHASE </button>
+                <button type="submit"> 
+                  <div className="button-items">
+                    <img src={require('public/images/cart.svg')}/>
+                    <span>COMPLETE PURCHASE</span>
+                  </div>
+                </button>
               </div>
               <ErrorMessage errors={defProps.errors}/>
             </div>
