@@ -1,25 +1,16 @@
 import './Order.scss'
 import 'react-notifications/lib/notifications.css';
 import React, { useRef } from 'react'
-import Input from 'Components/Input/Input'
-import Select from 'Components/Select/Select'
 import Form from 'Components/Form/Form';
 import PersonalInformation from 'Components/PersonalInformation/PersonalInformation';
 import PaymentDetails from 'Components/PaymentDetails/PaymentDetails';
 import OrderSummary from 'Components/OrderSummary/OrderSummary';
 import Communication from 'Utils/Communication';
 import ErrorMessage from 'Components/ErrorMessage/ErrorMessage';
-import withFormDefinition from 'Components/Form/withFormDefinition';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { getDigitsOnly } from 'Utils/Parsers';
 
-
-const FormInput = withFormDefinition(Input)
-const FormSelect = withFormDefinition(Select);
-
 const onSubmit = async (data, setError) => {
-  console.log(data);
-
   const result = await Communication.post({
     path: '/order',
     body: Object.assign({}, data, {
@@ -58,9 +49,7 @@ const Order = ({order}) => {
                 <PersonalInformation defProps={defProps} />
                 <OrderSummary order={order}/>
                 <PaymentDetails defProps={defProps}/>
-                <button type="submit">
-                  COMPLETE PURCHASE
-                </button>
+                <button type="submit"> COMPLETE PURCHASE </button>
               </div>
               <ErrorMessage errors={defProps.errors}/>
             </div>

@@ -1,3 +1,4 @@
+import './PersonalInformation.scss'
 import React from 'react'
 import Countries from 'Mocks/Countries';
 import FormDefinition from 'Definitions/FormDefinition';
@@ -11,15 +12,15 @@ const FormSelect = withFormDefinition(Select);
 const PersonalInformation = ({defProps}) => {
   return (
     <>
-      <div className="order__personal-information--header">
+      <div className="personal-information__header">
         <img src={require('../../../public/images/one.svg')}/>
         <span>PERSONAL INFORMATION</span>
       </div>
-      <div className="order__personal-information--inputs">
+      <div className="personal-information__inputs">
         <FormInput 
           {...defProps} 
           definition={FormDefinition.firstName} 
-          className="order__personal-information-first-name" 
+          className="personal-information__first-name" 
           label="First name" 
           placeholder="Your name" 
           type="text"
@@ -27,14 +28,14 @@ const PersonalInformation = ({defProps}) => {
         <FormInput 
           {...defProps} 
           definition={FormDefinition.lastName} 
-          className="order__personal-information-last-name" 
+          className="personal-information__last-name" 
           label="Last name" placeholder="Your last name" 
           type="text"
         />
         <FormInput 
           {...defProps} 
           definition={FormDefinition.email} 
-          className="order__personal-information-email" 
+          className="personal-information__email" 
           label="Email" 
           placeholder="Your email" 
           type="text"
@@ -42,7 +43,7 @@ const PersonalInformation = ({defProps}) => {
         <FormSelect 
           {...defProps} 
           definition={FormDefinition.country} 
-          className="order__personal-information-country" 
+          className="personal-information__country" 
           label="Country" 
           placeholder="Select country" 
           options={Countries}
@@ -50,7 +51,7 @@ const PersonalInformation = ({defProps}) => {
         <FormInput 
           {...defProps} 
           definition={FormDefinition.postalCode} 
-          className="order__personal-information-postal-code" 
+          className="personal-information__postal-code" 
           label="Postal Code" 
           placeholder="00000"
           type="text" 
@@ -60,7 +61,7 @@ const PersonalInformation = ({defProps}) => {
         <FormInput 
           {...defProps} 
           definition={FormDefinition.phone} 
-          className="order__personal-information-phone" 
+          className="personal-information__phone" 
           label="Phone Number" 
           placeholder="(000) 000-00-00" 
           type="text" 

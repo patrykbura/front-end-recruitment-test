@@ -1,0 +1,58 @@
+.payment-details__header{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  font-weight: 600;
+  color: black;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+
+  span{
+    margin-right: 0.8em;
+  }
+
+  img:first-child {
+    width: 25px;
+    margin-left: -30px;
+    margin-right: 10px;
+  }
+
+  img{
+    width: 0.8em;
+  }
+}
+
+.payment-details__inputs{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  .payment-details__card{
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .payment-details__security-code, .payment-details__card{
+    position: relative;
+
+    img{
+      width: 35px;
+      position: absolute;
+      right: 22px;
+      top: 13px;
+    } 
+  }
+
+  .payment-details__security-code{
+    img{
+      width: 25px;
+      top: 18px;
+    }
+  }
+}

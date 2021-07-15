@@ -1,0 +1,31 @@
+.personal-information__header{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 25px;
+    margin-left: -30px;
+    margin-right: 10px;
+  }
+}
+
+.personal-information__inputs{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  .personal-information__email, .personal-information__phone{
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}

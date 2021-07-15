@@ -1,10 +1,5 @@
 #order {
   background-color: #f2f2f2;
-  // position: absolute;
-  // left: 0;
-  // right: 0;
-  // top: 0;
-  // bottom: 0;
   width: 100%;
   padding: 20px 40px;
   display: flex;
@@ -13,103 +8,10 @@
 }
 
 .order-wrapper{
-  // width: 100%;
-  // height: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 0.1fr 4fr 0.1fr 2fr 1fr;
   gap: 20px;
-
-  .order__personal-information--header{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    font-weight: 600;
-    color: black;
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 25px;
-      margin-left: -30px;
-      margin-right: 10px;
-    }
-  }
-
-  .order__personal-information--inputs{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-
-    .order__personal-information-email, .order__personal-information-phone{
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
-  }
-
-  .order__payment--header{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 3;
-    grid-row-end: 3;
-    font-weight: 600;
-    color: black;
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-
-    span{
-      margin-right: 0.8em;
-    }
-
-    img:first-child {
-      width: 25px;
-      margin-left: -30px;
-      margin-right: 10px;
-    }
-
-    img{
-      width: 0.8em;
-    }
-  }
-
-  .order__payment--inputs{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 4;
-    grid-row-end: 4;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-
-    .order__personal-information-card{
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
-
-    .order__personal-information-security-code, .order__personal-information-card{
-      position: relative;
-
-      img{
-        width: 35px;
-        position: absolute;
-        right: 22px;
-        top: 13px;
-      } 
-    }
-
-    .order__personal-information-security-code{
-      img{
-        width: 25px;
-        top: 18px;
-      }
-    }
-  }
 
   button {
     grid-column-start: 1;

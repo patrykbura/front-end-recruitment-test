@@ -1,3 +1,4 @@
+import './PaymentDetails.scss'
 import React from 'react'
 import FormDefinition from 'Definitions/FormDefinition';
 import Input from 'Components/Input/Input'
@@ -8,16 +9,16 @@ const FormInput = withFormDefinition(Input);
 const PaymentDetails = ({defProps}) => {
   return (
     <>
-      <div className="order__payment--header">
+      <div className="payment-details__header">
         <img src={require('../../../public/images/two.svg')}/>
         <span>PAYMENTS DETAILS</span>
         <img src={require('../../../public/images/lock.svg')}/>
       </div>
-      <div className="order__payment--inputs">
+      <div className="payment-details__inputs">
         <FormInput 
           {...defProps} 
           definition={FormDefinition.card} 
-          className="order__personal-information-card" 
+          className="payment-details__card" 
           label="Credit Card Number" 
           placeholder="0000-0000-0000-0000"
           type="text" 
@@ -29,7 +30,7 @@ const PaymentDetails = ({defProps}) => {
         <FormInput 
           {...defProps} 
           definition={FormDefinition.securityCode} 
-          className="order__personal-information-security-code" 
+          className="payment-details__security-code" 
           label="Security code" placeholder="***" 
           type="password" maxLength="3" 
           customImg={require('../../../public/images/questionmark.svg')} 
@@ -38,7 +39,7 @@ const PaymentDetails = ({defProps}) => {
         <FormInput 
           {...defProps} 
           definition={FormDefinition.expDate} 
-          className="order__personal-information-exp-date" 
+          className="payment-details__exp-date" 
           label="Expiration date" 
           placeholder="MM/YY" 
           type="text" 
