@@ -1,5 +1,5 @@
 import React from 'react'
-import FormDefinition from 'Containers/Order/FormDefinition';
+import FormDefinition from 'Definitions/FormDefinition';
 import Input from 'Components/Input/Input'
 import withFormDefinition from 'Components/Form/withFormDefinition';
 

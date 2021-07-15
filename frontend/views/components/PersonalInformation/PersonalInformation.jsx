@@ -1,6 +1,6 @@
 import React from 'react'
 import Countries from 'Mocks/Countries';
-import FormDefinition from 'Containers/Order/FormDefinition';
+import FormDefinition from 'Definitions/FormDefinition';
 import Select from 'Components/Select/Select'
 import Input from 'Components/Input/Input'
 import withFormDefinition from 'Components/Form/withFormDefinition';

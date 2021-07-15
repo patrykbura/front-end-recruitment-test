@@ -9,7 +9,6 @@ import PaymentDetails from 'Components/PaymentDetails/PaymentDetails';
 import OrderSummary from 'Components/OrderSummary/OrderSummary';
 import Communication from 'Utils/Communication';
 import ErrorMessage from 'Components/ErrorMessage/ErrorMessage';
-import FormDefinition from './FormDefinition';
 import withFormDefinition from 'Components/Form/withFormDefinition';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { getDigitsOnly } from 'Utils/Parsers';
